@@ -17,6 +17,7 @@
 		CCE5D3DF23BF3B27007298EC /* node.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCE5D3DA23BF3B27007298EC /* node.plist */; };
 		CCE5D3E023BF3B27007298EC /* HWCustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5D3DD23BF3B27007298EC /* HWCustomSlider.m */; };
 		CCE5D3E123BF3B27007298EC /* MyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5D3DE23BF3B27007298EC /* MyNode.m */; };
+		CCE5D3E423BF3F42007298EC /* ScreenRecording_01-03-2020-17-18-32_1_.gif in Resources */ = {isa = PBXBuildFile; fileRef = CCE5D3E323BF3F42007298EC /* ScreenRecording_01-03-2020-17-18-32_1_.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CCE5D3DC23BF3B27007298EC /* HWCustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCustomSlider.h; sourceTree = "<group>"; };
 		CCE5D3DD23BF3B27007298EC /* HWCustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCustomSlider.m; sourceTree = "<group>"; };
 		CCE5D3DE23BF3B27007298EC /* MyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNode.m; sourceTree = "<group>"; };
+		CCE5D3E323BF3F42007298EC /* ScreenRecording_01-03-2020-17-18-32_1_.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ScreenRecording_01-03-2020-17-18-32_1_.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		CCE5D3C023BF3AD9007298EC /* SceneKit_3DRobot_Control */ = {
 			isa = PBXGroup;
 			children = (
+				CCE5D3E223BF3F34007298EC /* gif */,
 				CCE5D3D923BF3B1A007298EC /* Classes */,
 				CCE5D3C123BF3AD9007298EC /* AppDelegate.h */,
 				CCE5D3C223BF3AD9007298EC /* AppDelegate.m */,
@@ -93,6 +96,14 @@
 				CCE5D3DA23BF3B27007298EC /* node.plist */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		CCE5D3E223BF3F34007298EC /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5D3E323BF3F42007298EC /* ScreenRecording_01-03-2020-17-18-32_1_.gif */,
+			);
+			path = gif;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +165,7 @@
 			files = (
 				CCE5D3C523BF3AD9007298EC /* art.scnassets in Resources */,
 				CCE5D3D023BF3ADA007298EC /* LaunchScreen.storyboard in Resources */,
+				CCE5D3E423BF3F42007298EC /* ScreenRecording_01-03-2020-17-18-32_1_.gif in Resources */,
 				CCE5D3DF23BF3B27007298EC /* node.plist in Resources */,
 				CCE5D3CD23BF3ADA007298EC /* Assets.xcassets in Resources */,
 				CCE5D3CB23BF3AD9007298EC /* Main.storyboard in Resources */,
@@ -314,6 +326,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S993VCFF58;
 				INFOPLIST_FILE = SceneKit_3DRobot_Control/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S993VCFF58;
 				INFOPLIST_FILE = SceneKit_3DRobot_Control/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
