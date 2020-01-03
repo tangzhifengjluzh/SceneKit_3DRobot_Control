@@ -20,12 +20,6 @@
     
 }
 @property (nonatomic, strong)  SCNNode *mynode;               ;
-@property (nonatomic, assign) float               angle1min;
-@property (nonatomic, assign) float               angle1max;
-@property (nonatomic, assign) float               angle1current;
-@property (nonatomic, assign) float               angleupcurrent;
-@property (nonatomic, assign) float               anglefoot;
-@property (nonatomic, assign) float               angle2_5;
 @property (nonatomic ,assign)CGFloat screenRadius;
 @property (nonatomic, strong) NSMutableArray               *nodes;
 @property (nonatomic, strong) HWCustomSlider               *slider;
@@ -45,12 +39,7 @@
 {
     [super viewDidLoad];
     
-    self.angle1min = -1;
-    self.angle1max = 1;
-    self.angle1current = 0;
-    self.angleupcurrent = 0;
-    self.anglefoot = 0;
-    self.angle2_5 = 1.57;
+
     // create a new scene
     SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/1(3).dae"];
     
@@ -322,101 +311,8 @@
         return;
         
     }
-    if ( [name isEqualToString:@"ship3"] || [name isEqualToString:@"ship6"]|| [name isEqualToString:@"ship7"]|| [name isEqualToString:@"ship12"]) {
-        if (curP.x > preP.x) {
-            self.angle1current = self.angle1current + 0.05;
-        }else if (curP.x < preP.x){
-            self.angle1current = self.angle1current - 0.05;
-            
-        }
-        if (self.angle1current > 1) {
-            self.angle1current = 1;
-        }
-        if (self.angle1current < -1) {
-            self.angle1current = -1;
-        }
-        [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:self.angle1current duration:0]];
-    }
-    if ( [name isEqualToString:@"ship2"] || [name isEqualToString:@"ship5"]) {
-        if ([name isEqualToString:@"ship2"]) {
-            if (curP.x > preP.x) {
-                self.angle2_5 = self.angle2_5 + 0.05;
-            }else if (curP.x < preP.x){
-                self.angle2_5 = self.angle2_5 - 0.05;
-                
-            }
-            if (self.angle2_5 > 1) {
-                self.angle2_5 = 1;
-            }
-            if (self.angle2_5 < -1) {
-                self.angle2_5 = -1;
-            }
-            [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:self.angle2_5 duration:0]];
-        }else{
-            if (curP.x > preP.x) {
-                self.angle2_5 = self.angle2_5 + 0.05;
-            }else if (curP.x < preP.x){
-                self.angle2_5 = self.angle2_5 - 0.05;
-                
-            }
-            if (self.angle2_5 > 1) {
-                self.angle2_5 = 1;
-            }
-            if (self.angle2_5 < -1) {
-                self.angle2_5 = -1;
-            }
-            [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:self.angle2_5 duration:0]];
-        }
-    }
-    
-    if ([name isEqualToString:@"ship1"] || [name isEqualToString:@"ship4"]|| [name isEqualToString:@"ship8"]|| [name isEqualToString:@"ship9"]|| [name isEqualToString:@"ship10"]|| [name isEqualToString:@"ship13"]|| [name isEqualToString:@"ship14"]|| [name isEqualToString:@"ship15"]) {
-        if (curP.y > preP.y) {
-            self.angleupcurrent = self.angleupcurrent + 0.05;
-        }else if (curP.y < preP.y){
-            self.angleupcurrent = self.angleupcurrent - 0.05;
-            
-        }
-        if (self.angleupcurrent > 1) {
-            self.angleupcurrent = 1;
-        }
-        if (self.angleupcurrent < -1) {
-            self.angleupcurrent = -1;
-        }
-        [self.mynode runAction:[SCNAction rotateToX:self.angleupcurrent y:0 z:0 duration:0]];
-        
-        
-    }
-    if ([name isEqualToString:@"ship11"] || [name isEqualToString:@"ship16"]) {
-        
-        if ([name isEqualToString:@"ship11"]) {
-            if (curP.y > preP.y) {
-                self.anglefoot = self.anglefoot + 0.05;
-            }else if (curP.y < preP.y){
-                self.anglefoot = self.anglefoot - 0.05;
-                
-            }
-            if (self.anglefoot > 0.8) {
-                self.anglefoot = 0.8;
-            }
-            if (self.anglefoot < -0.3) {
-                self.anglefoot = -0.3;
-            }
-        }else if ([name isEqualToString:@"ship16"]){
-            if (curP.y < preP.y) {
-                self.anglefoot = self.anglefoot + 0.05;
-            }else if (curP.y > preP.y){
-                self.anglefoot = self.anglefoot - 0.05;
-                
-            }
-            if (self.anglefoot > 0.3) {
-                self.anglefoot = 0.3;
-            }
-            if (self.anglefoot < -0.8) {
-                self.anglefoot = -0.8;
-            }
-        }
-        [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:self.anglefoot  duration:0]];
-    }
+
+
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -493,64 +389,6 @@
             [self change:self.mynode color:[UIColor greenColor]];
             
         }
-        //        SCNMaterial *material =  self.mynode.geometry.firstMaterial;// result.node.geometry.firstMaterial;
-        //                material.diffuse.contents = [UIColor greenColor];
-        //     SCNNode *n =   self.mynode.childNodes.firstObject;
-        
-        //        n.geometry.firstMaterial.diffuse.contents = [UIColor greenColor];
-        //        for (SCNNode *no in self.mynode.childNodes) {
-        //            SCNMaterial *ma =  no.geometry.firstMaterial;//
-        //            ma.emission.contents = [UIColor greenColor];
-        //
-        //        }
-        //            [mynode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:2 z:0 duration:1]]];
-        
-        //            [ self.mynode runAction:[SCNAction rotateByX:0 y:0 z:3.14  duration:1] completionHandler:^{
-        //    //            [ self.mynode runAction:[SCNAction rotateByX:0 y:0 z:0 duration:1]];
-        //            }];
-        if ([self.mynode.name isEqualToString:@"ship2"]) {
-            //                if (self.mynode.rotation.z == 1) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:0 duration:1]];
-            //
-            //                }else if (self.mynode.rotation.z == 1) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:0 duration:1]];
-            //
-            //                }else if (self.mynode.rotation.z == 0) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:1 duration:1]];
-            //
-            //                }
-        }else if ([self.mynode.name isEqualToString:@"ship1"]) {
-            //                if (self.mynode.rotation.z == 1) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:-1 duration:1]];
-            //
-            //                }else if (self.mynode.rotation.z == -1) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:0 duration:1]];
-            //
-            //                }else if (self.mynode.rotation.z == 0) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:1 duration:1]];
-            //
-            //                }
-        }
-        
-        //        self.mynode.transform = SCNMatrix4MakeRotation(0, 10, 1, 1);
-        //        [SCNAction rotateByX:10 y:10 z:10 duration:1];
-        // highlight it
-        //        [SCNTransaction begin];
-        //        [SCNTransaction setAnimationDuration:0.5];
-        //
-        //        // on completion - unhighlight
-        //        [SCNTransaction setCompletionBlock:^{
-        //            [SCNTransaction begin];
-        //            [SCNTransaction setAnimationDuration:0.5];
-        //
-        //            material.emission.contents = [UIColor blackColor];
-        //
-        //            [SCNTransaction commit];
-        //        }];
-        //
-        //        material.emission.contents = [UIColor redColor];
-        //
-        //        [SCNTransaction commit];
     }
 }
 - (void)tapHandle:(UIGestureRecognizer*)gestureRecognize
@@ -578,54 +416,8 @@
         NSLog(@"name =%@",self.mynode.name);
         SCNMaterial *material =  self.mynode.geometry.firstMaterial;// result.node.geometry.firstMaterial;
         material.emission.contents = [UIColor greenColor];
-        //            [mynode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:2 z:0 duration:1]]];
-        
-        //            [ self.mynode runAction:[SCNAction rotateByX:0 y:0 z:3.14  duration:1] completionHandler:^{
-        //    //            [ self.mynode runAction:[SCNAction rotateByX:0 y:0 z:0 duration:1]];
-        //            }];
-        if ([self.mynode.name isEqualToString:@"ship2"]) {
-            //                if (self.mynode.rotation.z == 1) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:0 duration:1]];
-            //
-            //                }else if (self.mynode.rotation.z == 1) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:0 duration:1]];
-            //
-            //                }else if (self.mynode.rotation.z == 0) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:1 duration:1]];
-            //
-            //                }
-        }else if ([self.mynode.name isEqualToString:@"ship1"]) {
-            //                if (self.mynode.rotation.z == 1) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:-1 duration:1]];
-            //
-            //                }else if (self.mynode.rotation.z == -1) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:0 duration:1]];
-            //
-            //                }else if (self.mynode.rotation.z == 0) {
-            //                    [self.mynode runAction:[SCNAction rotateToX:0 y:0 z:1 duration:1]];
-            //
-            //                }
-        }
-        
-        //        self.mynode.transform = SCNMatrix4MakeRotation(0, 10, 1, 1);
-        //        [SCNAction rotateByX:10 y:10 z:10 duration:1];
-        // highlight it
-        //        [SCNTransaction begin];
-        //        [SCNTransaction setAnimationDuration:0.5];
-        //
-        //        // on completion - unhighlight
-        //        [SCNTransaction setCompletionBlock:^{
-        //            [SCNTransaction begin];
-        //            [SCNTransaction setAnimationDuration:0.5];
-        //
-        //            material.emission.contents = [UIColor blackColor];
-        //
-        //            [SCNTransaction commit];
-        //        }];
-        //
-        //        material.emission.contents = [UIColor redColor];
-        //
-        //        [SCNTransaction commit];
+ 
+
     }
 }
 
