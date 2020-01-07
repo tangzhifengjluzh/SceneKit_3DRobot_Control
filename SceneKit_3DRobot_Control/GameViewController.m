@@ -41,7 +41,7 @@
     
 
     // create a new scene
-    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/1(3).dae"];
+    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/移动后的效果图.dae"];
     
     // create and add a camera to the scene
     SCNNode *cameraNode = [SCNNode node];
@@ -112,6 +112,7 @@
     
     [scnView.scene.rootNode addChildNode:controlNode];
     scnView.delegate=(id)self;
+    //根据节点名称获取节点，这些名称可以自定义  具体可查看 1(3).dae 文件
     //右手
     SCNNode *ship1 = [scene.rootNode childNodeWithName:@"ship1" recursively:YES];
     SCNNode *ship2 = [scene.rootNode childNodeWithName:@"ship2" recursively:YES];
@@ -182,8 +183,10 @@
     
     for (int i = 0; i<16; i++) {
         MyNode *node = self.nodes[i];
+        //根据节点名获取节点  ship 为自己定义的 具体可以查看 移动后的效果图.dae  双击节点可修改节点名
         node.node = [scene.rootNode childNodeWithName:[NSString stringWithFormat:@"ship%d" ,i + 1] recursively:YES];
-        node.node.pivot = SCNMatrix4MakeTranslation(node.node.position.x, node.node.position.y, node.node.position.z); //node.node.position;
+#warning 这句很重要。解决3D模型节点错位的问题。我是根据（原型.dae）为原型。由于它所有的节点的原点都是在(0,0,0),所以节点转动起来不是自己想要的效果，后来我就平移节点，移动后的效果图为(移动后的效果图.dae)。使要转动的节点的原点处于我想要转动的那个轴点上。但这样做节点会错位。所以通过下面这句很好的解决了这个问题。
+        node.node.pivot = SCNMatrix4MakeTranslation(node.node.position.x, node.node.position.y, node.node.position.z);
         node.delegate = self;
     }
     
