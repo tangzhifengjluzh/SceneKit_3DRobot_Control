@@ -8,3 +8,16 @@
 
 
 ![image](https://github.com/tangzhifengjluzh/SceneKit_3DRobot_Control/blob/master/SceneKit_3DRobot_Control/gif/ScreenRecording_01-03-2020-17-18-32_1_.gif)
+
+
+# 重点部分
+```ruby
+    for (int i = 0; i<16; i++) {
+        MyNode *node = self.nodes[i];
+        //根据节点名获取节点  ship 为自己定义的 具体可以查看 移动后的效果图.dae  双击节点可修改节点名
+        node.node = [scene.rootNode childNodeWithName:[NSString stringWithFormat:@"ship%d" ,i + 1] recursively:YES];
+#warning 这句很重要。解决3D模型节点错位的问题。我是根据（原型.dae）为原型。由于它所有的节点的原点都是在(0,0,0),所以节点转动起来不是自己想要的效果，后来我就平移节点，移动后的效果图为(移动后的效果图.dae)。使要转动的节点的原点处于我想要转动的那个轴点上。但这样做节点会错位。所以通过下面这句很好的解决了这个问题。
+        node.node.pivot = SCNMatrix4MakeTranslation(node.node.position.x, node.node.position.y, node.node.position.z);
+        node.delegate = self;
+    }
+```
