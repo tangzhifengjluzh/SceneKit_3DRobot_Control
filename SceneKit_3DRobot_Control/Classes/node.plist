@@ -266,9 +266,9 @@
 		<key>left</key>
 		<true/>
 		<key>minAngle</key>
-		<real>-1.57</real>
+		<real>-0.385</real>
 		<key>maxAngle</key>
-		<real>1.57</real>
+		<real>0.87</real>
 		<key>currentAngle</key>
 		<integer>0</integer>
 		<key>stantandAngle</key>
@@ -396,9 +396,9 @@
 		<key>left</key>
 		<false/>
 		<key>minAngle</key>
-		<real>-1.57</real>
+		<real>-0.87</real>
 		<key>maxAngle</key>
-		<real>1.57</real>
+		<real>0.385</real>
 		<key>currentAngle</key>
 		<integer>0</integer>
 		<key>stantandAngle</key>

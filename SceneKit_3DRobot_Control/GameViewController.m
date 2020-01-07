@@ -92,7 +92,6 @@
     
     // configure the view
     scnView.backgroundColor = [UIColor blackColor];
-    
     // add a tap gesture recognizer
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandle:)];
     NSMutableArray *gestureRecognizers = [NSMutableArray array];
@@ -213,6 +212,7 @@
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
       [button1 addTarget:self action:@selector(doubleClick:) forControlEvents:UIControlEventTouchUpInside];
       [button1 setTitle:@"不可旋转" forState:UIControlStateNormal];
+      [button1 setTitle:@"可旋转" forState:UIControlStateSelected];
       [self.view addSubview:button1];
     button1.tag = 1;
       button1.frame = CGRectMake(250, 650, 80, 30);
@@ -260,16 +260,9 @@
 - (void)doubleClick:(UIButton *)sender
 {
     if (sender.tag == 1) {
-        if ([sender.currentTitle isEqualToString:@"可旋转"]) {
-            scnView.allowsCameraControl = NO;
-            [sender setTitle:@"不可旋转" forState:UIControlStateNormal];
-        }else{
-            [sender setTitle:@"可旋转" forState:UIControlStateNormal];
-            scnView.allowsCameraControl = YES;
-
-        }
+        sender.selected = !sender.selected;
+        scnView.allowsCameraControl = sender.selected;
     }else{
-        
         for (int i = 0; i<16; i++) {
             MyNode *node = self.nodes[i];
             [node reSet];
