@@ -262,6 +262,7 @@
     if (sender.tag == 1) {
         sender.selected = !sender.selected;
         scnView.allowsCameraControl = sender.selected;
+        self.mynode = nil;
     }else{
         for (int i = 0; i<16; i++) {
             MyNode *node = self.nodes[i];
